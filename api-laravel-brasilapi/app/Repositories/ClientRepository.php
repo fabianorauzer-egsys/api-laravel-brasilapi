@@ -3,26 +3,44 @@
 namespace App\Repositories;
 
 use App\Models\Client;
+use App\Repositories\Interfaces\ClientRepositoryInterface;
+use Exception;
 
-class ClientRepository
+class ClientRepository implements ClientRepositoryInterface
 {
     public function create(array $data): Client
     {
-        return Client::create($data);
+        try {
+            return Client::create($data);
+        } catch (Exception $e) {
+            throw $e;
+        }
     }
 
     public function all()
     {
-        return Client::all();
+        try {
+            return Client::all();
+        } catch (Exception $e) {
+            throw $e;
+        }
     }
 
     public function find(int $id): ?Client
     {
-        return Client::find($id);
+        try {
+            return Client::find($id);
+        } catch (Exception $e) {
+            throw $e;
+        }
     }
 
     public function update(Client $client, array $data): bool
     {
-        return $client->update($data);
+        try {
+            return $client->update($data);
+        } catch (Exception $e) {
+            throw $e;
+        }
     }
 }
