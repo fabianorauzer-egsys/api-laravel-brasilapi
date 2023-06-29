@@ -8,7 +8,7 @@ use Exception;
 
 class ClientRepository implements ClientRepositoryInterface
 {
-    public function create(array $data): Client
+    public function createClient(array $data): Client
     {
         try {
             return Client::create($data);
@@ -17,7 +17,7 @@ class ClientRepository implements ClientRepositoryInterface
         }
     }
 
-    public function all()
+    public function getAllClients()
     {
         try {
             return Client::all();
@@ -26,7 +26,7 @@ class ClientRepository implements ClientRepositoryInterface
         }
     }
 
-    public function find(int $id): ?Client
+    public function findClientById(int $id): ?Client
     {
         try {
             return Client::find($id);
@@ -35,7 +35,7 @@ class ClientRepository implements ClientRepositoryInterface
         }
     }
 
-    public function update(Client $client, array $data): bool
+    public function updateClient(Client $client, array $data): bool
     {
         try {
             return $client->update($data);
